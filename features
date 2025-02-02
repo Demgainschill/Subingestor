@@ -1,0 +1,8 @@
+url parsing and getopts parsing
+find subdomains with subfinder
+use dnsx to recon live sites 
+display all sites with having an option to change it to anything found or not red or green have progress in the current working directory
+create a file of the target site containing all active subdomains and progress
+load files into the ingester to load progress also the text file containing the subdomains should be able to be able to be manipulated as in you can add a new subdomain and have the green or red indicating found or not found
+
+

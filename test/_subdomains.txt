@@ -1,0 +1,13 @@
+accounts.arattai.in,FOUND
+api.arattai.in,FOUND
+chat.arattai.in,FOUND
+cliq.arattai.in,FOUND
+contacts.arattai.in,FOUND
+help.arattai.in,FOUND
+in1-logs.arattai.in,FOUND
+in2-logs.arattai.in,FOUND
+logsupload.arattai.in,FOUND
+status.arattai.in,FOUND
+wms.arattai.in,FOUND
+www.arattai.in,FOUND
+zs-in1arattai-lc1.arattai.in,FOUND
