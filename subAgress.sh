@@ -1,19 +1,20 @@
 #!/bin/bash
-
+isLink=1
 usage(){
 	cat <<EOF
 	Usage ./
 	-u  : Url provided for subfinder and dnsx to be reconned
 	-l  : Load File to ingest from.	
+	-h  : Display Help page
 EOF
 }
 
 
 
 fileCheck(){
-		if [[ -f $1 ]]; then
+		if [[ -f "$1" ]]; then
 			file="$1"
-			echo "loading file $1"
+			echo "Ingesting subdomain file $1"
 
 		else
 			echo "Not a file"
@@ -22,8 +23,8 @@ fileCheck(){
 }
 
 linkParser(){
-	link="$1"
-	echo $link | grep -Eiwq "^(https?:\/\/)?[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
+	testLink="$1"
+	grep -Eiwq "^(https?:\/\/)?[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" <<< "$testLink"
 	if [[ $? -eq 0 ]]; then
 		isLink=0
 	else
@@ -31,28 +32,38 @@ linkParser(){
 	fi
 }
 
+subFind(){
+	echo "Running subfinder on $1"
+	subfinder -d $1 -silent -active	
+}
+
 linkCheck(){
 		link="$1"
 		linkParser "$link"
 		if [[ "$isLink" -eq 0 ]]; then
-			echo "Is a link"	
+			subFind "$testLink"				
 		else
 			echo "Is not a link"
 			exit 1
 		fi	
 }
-while getopts ":u:l:" opts; do
+
+while getopts ":hu:l:" opts; do
 	case $opts in
+		h)
+			usage
+			exit 1
+			;;
 		u)
 			link="$OPTARG"
 			if [[ -n $OPTARG ]]; then
-				linkCheck $link	
+				linkCheck "$link"	
 			fi
 			;;
 		l)
 			file="$OPTARG"
 			if [[ -n $OPTARG ]] ; then
-				fileCheck $file
+				fileCheck "$file"
 				
 			fi
 			;;
