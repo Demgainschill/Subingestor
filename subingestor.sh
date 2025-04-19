@@ -1,12 +1,15 @@
 #!/bin/bash
 isLink=1
+
 usage(){
+
 	cat <<EOF
-	Usage ./
+	Usage ./subingestor [-u|-h]
 	-u  : Url provided for subfinder and dnsx to be reconned
-	-l  : Load File to ingest from.	
+	-l  : Load File to ingest from ( Added in future update )
 	-h  : Display Help page
 EOF
+
 }
 
 
