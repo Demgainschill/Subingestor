@@ -1,6 +1,6 @@
 ## Subingestor
 
-A bash enumeration tool using ## dnsx and ## subfinder to find live subdomains of a url provided
+A bash enumeration tool using dnsx and subfinder to find live subdomains of a url provided
 
 ![Screenshot From 2025-04-20 00-01-20](https://github.com/user-attachments/assets/dc85a40c-ba13-4140-89c5-a9b18fe1c892)
 
