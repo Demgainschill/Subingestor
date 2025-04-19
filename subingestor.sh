@@ -15,13 +15,13 @@ isLink=1
 usage(){
 
 	cat <<EOF
-${g}    _          _     _                                        ${reset}
-${g}   | |        | |   (_)                       _               ${reset}
-${g}    \ \  _   _| | _  _ ____   ____  ____  ___| |_  ___   ____ ${reset}
-${g}     \ \| | | | || \| |  _ \ / _  |/ _  )/___)  _)/ _ \ / ___)${reset}
-${g} _____) ) |_| | |_) ) | | | ( ( | ( (/ /|___ | |_| |_| | |    ${reset}
-${g}(______/ \____|____/|_|_| |_|\_|| |\____|___/ \___)___/|_|    ${reset}
-${g}                            {_____|                           ${reset}
+${r}    _          _     _                                        ${reset}
+${r}   | |        | |   (_)                       _               ${reset}
+${r}    \ \  _   _| | _  _ ____   ____  ____  ___| |_  ___   ____ ${reset}
+${r}     \ \| | | | || \| |  _ \ / _  |/ _  )/___)  _)/ _ \ / ___)${reset}
+${r} _____) ) |_| | |_) ) | | | ( ( | ( (/ /|___ | |_| |_| | |    ${reset}
+${r}(______/ \____|____/|_|_| |_|\_|| |\____|___/ \___)___/|_|    ${reset}
+${r}                            {_____|                           ${reset}
 
 
       ${b}Usage${reset} ./${g}subingestor${reset} ${r}[-u|-h]${reset}
@@ -30,10 +30,13 @@ ${g}                            {_____|                           ${reset}
 	${y}-h${reset}  : ${r}Display Help page${reset}
 
 	${b}Example${reset}:
-		./${g}subingestor.sh${reset} ${y}-u${reset} google.com
-		dev.google.com
-		production.google.com
+		
+	./${g}subingestor.sh${reset} ${y}-u${reset} ${b}google.com${reset}
+		${y}Live Subdomains for google.com are as follows${reset}
+		${b}dev.google.com${reset}
+		${b}production.google.com${reset}
 		...
+@${b}Demgainschill${reset}
 EOF
 
 }
