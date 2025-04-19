@@ -33,7 +33,7 @@ linkParser(){
 }
 
 subFind(){
-	echo "Running subfinder on $1"
+	echo "Finding Live Subdomains for $1"
 	subfinder -d $1 -silent -active	
 }
 
@@ -69,10 +69,12 @@ while getopts ":hu:l:" opts; do
 			;;
 		\?)
 			echo "Invalid option"
+			usage
 			exit 1
 			;;
 		:)
 			echo "Missing argument"
+			usage
 			exit 1
 			;;
 	esac
