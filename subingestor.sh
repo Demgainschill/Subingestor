@@ -1,13 +1,39 @@
 #!/bin/bash
+
+## Subingestor a powerful recon tool using subfinder and dnsx for subdomain enumeration
+
+b=$(tput setaf 4)
+r=$(tput setaf 1)
+g=$(tput setaf 10)
+y=$(tput setaf 3)
+reset=$(tput sgr0)
+c=$(tput setaf 14)
+o=$(tput setaf 208) 
+
 isLink=1
 
 usage(){
 
 	cat <<EOF
-	Usage ./subingestor [-u|-h]
-	-u  : Url provided for subfinder and dnsx to be reconned
-	-l  : Load File to ingest from ( Added in future update )
-	-h  : Display Help page
+${g}    _          _     _                                        ${reset}
+${g}   | |        | |   (_)                       _               ${reset}
+${g}    \ \  _   _| | _  _ ____   ____  ____  ___| |_  ___   ____ ${reset}
+${g}     \ \| | | | || \| |  _ \ / _  |/ _  )/___)  _)/ _ \ / ___)${reset}
+${g} _____) ) |_| | |_) ) | | | ( ( | ( (/ /|___ | |_| |_| | |    ${reset}
+${g}(______/ \____|____/|_|_| |_|\_|| |\____|___/ \___)___/|_|    ${reset}
+${g}                            {_____|                           ${reset}
+
+
+      ${b}Usage${reset} ./${g}subingestor${reset} ${r}[-u|-h]${reset}
+	${y}-u${reset}  : ${r}Url provided for ${reset}${y}subfinder${reset}${r} and ${reset}${y}dnsx${reset}${r} to be reconned ${reset}
+	${y}-l${reset}  : ${r}Load File to ingest from ${reset}${b}( To be added in future updates ) ${reset}
+	${y}-h${reset}  : ${r}Display Help page${reset}
+
+	${b}Example${reset}:
+		./${g}subingestor.sh${reset} ${y}-u${reset} google.com
+		dev.google.com
+		production.google.com
+		...
 EOF
 
 }
@@ -46,7 +72,7 @@ linkCheck(){
 		if [[ "$isLink" -eq 0 ]]; then
 			subFind "$testLink"				
 		else
-			echo "Is not a link"
+			echo "Is not a link.Exiting.."
 			exit 1
 		fi	
 }
@@ -71,12 +97,12 @@ while getopts ":hu:l:" opts; do
 			fi
 			;;
 		\?)
-			echo "Invalid option"
+			echo "Invalid option.Exiting.."
 			usage
 			exit 1
 			;;
 		:)
-			echo "Missing argument"
+			echo "Missing argument.Exiting.."
 			usage
 			exit 1
 			;;
@@ -90,7 +116,7 @@ fi
 shift $((OPTIND-1))
 
 if [[ $# -ge 1 ]]; then
-	echo "Too many arguments"
+	echo "Too many arguments.Exiting.."
 	usage
 	exit 1
 fi
