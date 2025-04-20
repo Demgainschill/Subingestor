@@ -36,7 +36,6 @@ ${r}                            {_____|                           ${reset}
 		${b}dev.google.com${reset}
 		${b}production.google.com${reset}
 		...
-@${b}Demgainschill${reset}
 EOF
 
 }
@@ -65,7 +64,7 @@ linkParser(){
 }
 
 subFind(){
-	echo "Finding Live Subdomains for $1"
+	echo "${y}Finding Live Subdomains for $1${reset}"
 	subfinder -d $1 -silent -active	
 }
 
